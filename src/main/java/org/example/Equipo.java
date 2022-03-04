@@ -25,6 +25,18 @@ public class Equipo {
         puntos = "0";
     }
 
+    public Equipo(String nombre, String PJ, String PG, String PE, String PP, String GF, String GC, String DG, String puntos) {
+        this.nombre = nombre;
+        this.PJ = PJ;
+        this.PG = PG;
+        this.PE = PE;
+        this.PP = PP;
+        this.GF = GF;
+        this.GC = GC;
+        this.DG = DG;
+        this.puntos = puntos;
+    }
+
     public String getNombre() {
         return nombre;
     }

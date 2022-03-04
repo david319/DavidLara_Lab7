@@ -7,8 +7,10 @@ import java.util.ArrayList;
 
 public class Archivos {
 
+    // Atributos
     static ArrayList<Equipo> equipos = new ArrayList<>();
 
+    // Metodos
     public static boolean addTeam(String name) {
         for (Equipo e : equipos) {
             if (e.getNombre().equals(name)) {
@@ -59,6 +61,24 @@ public class Archivos {
             }
         }
         return false;
+    }
+
+    public static boolean loadArchivo() {
+        try {
+            String ruta = "equipos.txt";
+            FileReader fr = new FileReader(ruta);
+            BufferedReader br = new BufferedReader(fr);
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(";");
+                equipos.add(new Equipo(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], datos[7], datos[8]));
+            }
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
 

@@ -4,13 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
-import static org.example.Archivos.addTeam;
-import static org.example.Archivos.deleteTeam;
+import static org.example.Archivos.*;
 
 public class PrimaryController {
 
     @FXML
-    private Pane Crear, DeleteT;
+    private Pane Crear, DeleteT, paneLoad;
 
     @FXML
     private MenuBar MenuBar;
@@ -22,7 +21,7 @@ public class PrimaryController {
     private TextField nameTeamC, nameD;
 
     @FXML
-    private Button BackP, Create, delete_btn, backE;
+    private Button BackP, Create, delete_btn, backE, loadA, backL;
 
 
     @FXML
@@ -34,14 +33,14 @@ public class PrimaryController {
         DeleteT.setVisible(false);
     }
 
-    public void BackP(){
+    public void BackP() {
         Crear.setVisible(false);
         MenuBar.setVisible(true);
     }
 
-    public void Create(){
+    public void Create() {
         String name = nameTeamC.getText();
-        if (addTeam(name)){
+        if (addTeam(name)) {
             Crear.setVisible(false);
             MenuBar.setVisible(true);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -52,16 +51,16 @@ public class PrimaryController {
         }
     }
 
-    public void OnCreateClicked(){
+    public void OnCreateClicked() {
         Create();
     }
 
-    public void backE(){
+    public void backE() {
         Crear.setVisible(false);
         MenuBar.setVisible(true);
     }
 
-    public void OnbacEClicked(){
+    public void OnbacEClicked() {
         backE();
     }
 
@@ -71,18 +70,18 @@ public class PrimaryController {
         MenuBar.setVisible(false);
     }
 
-    public void BackD(){
+    public void BackD() {
         DeleteT.setVisible(false);
         MenuBar.setVisible(true);
     }
 
-    public void OnbackEClicked(){
+    public void OnbackEClicked() {
         BackD();
     }
 
-    public void delete_btn(){
+    public void delete_btn() {
         String name = nameD.getText();
-        if (deleteTeam(name)){
+        if (deleteTeam(name)) {
             DeleteT.setVisible(false);
             MenuBar.setVisible(true);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -101,8 +100,38 @@ public class PrimaryController {
         }
     }
 
-    public void OnDeleteClicked(){
+    public void OnDeleteClicked() {
         delete_btn();
+    }
+
+    public void OnLoadAClicked() {
+        paneLoad.setVisible(true);
+        MenuBar.setVisible(false);
+    }
+
+    public void BackL(){
+        paneLoad.setVisible(false);
+        MenuBar.setVisible(true);
+    }
+
+    public void loadA() {
+        if (loadArchivo()) {
+            paneLoad.setVisible(false);
+            MenuBar.setVisible(true);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Informacion");
+            alert.setHeaderText("Archivo cargado");
+            alert.setContentText("El archivo ha sido cargado");
+            alert.showAndWait();
+        } else {
+            paneLoad.setVisible(false);
+            MenuBar.setVisible(true);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Archivo no encontrado");
+            alert.setContentText("El archivo no existe");
+            alert.showAndWait();
+        }
     }
 
 }

@@ -14,7 +14,7 @@
                                 <MenuItem fx:id="CreateT" mnemonicParsing="false" onAction="#OnClickCreateTeam" text="Crear Equipo" />
                                 <MenuItem fx:id="EditT" mnemonicParsing="false" text="Modificar Equipo" />
                                 <MenuItem fx:id="deleteT" mnemonicParsing="false" onAction="#OnClickDeleteTeam" text="Eliminar Equipo" />
-                                <MenuItem fx:id="LoadA" mnemonicParsing="false" text="Cargar Archivo" />
+                                <MenuItem fx:id="LoadA" mnemonicParsing="false" onAction="#OnLoadAClicked" text="Cargar Archivo" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Partidos">
@@ -33,7 +33,7 @@
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="18.0" prefHeight="17.0" prefWidth="96.0" text="Crear Equipo" />
                     </children>
                 </Pane>
-                <Pane fx:id="DeleteT" layoutX="19.0" layoutY="70.0" prefHeight="144.0" prefWidth="265.0">
+                <Pane fx:id="DeleteT" layoutX="19.0" layoutY="70.0" prefHeight="144.0" prefWidth="265.0" visible="false">
                     <children>
                         <Button fx:id="delete_btn" layoutX="107.0" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#OnDeleteClicked" text="Eliminar" />
                         <Button fx:id="backE" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#OnbackEClicked" text="Atras" />
@@ -41,6 +41,11 @@
                   <TextField fx:id="nameD" layoutX="53.0" layoutY="60.0" prefHeight="25.0" prefWidth="176.0" promptText="Ingrese el nombre del equipo" />
                     </children>
                 </Pane>
+            <Pane fx:id="paneLoad" layoutX="59.0" layoutY="42.0" prefHeight="100.0" prefWidth="182.0">
+               <children>
+                  <Button fx:id="loadA" layoutX="44.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#loadA" text="Cargar Archivo" />
+                  <Button fx:id="backL" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#BackL" text="Salir" />
+               </children></Pane>
             </children>
         </Pane>
     </children>
