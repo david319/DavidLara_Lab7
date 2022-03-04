@@ -9,7 +9,7 @@ public class Archivos {
 
     static ArrayList<Equipo> equipos = new ArrayList<>();
 
-    public static void addTeam(String name) {
+    public static boolean addTeam(String name) {
         for (Equipo e : equipos) {
             if (e.getNombre().equals(name)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -17,7 +17,7 @@ public class Archivos {
                 alert.setHeaderText("Equipo ya existente");
                 alert.setContentText("El equipo ya existe");
                 alert.showAndWait();
-                return;
+                return false;
             }
         }
         equipos.add(new Equipo(name));
@@ -37,6 +37,28 @@ public class Archivos {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return true;
+    }
+
+    public static boolean deleteTeam(String name) {
+        for (Equipo e : equipos) {
+            if (e.getNombre().equals(name)) {
+                equipos.remove(e);
+                try {
+                    String ruta = "equipos.txt";
+                    FileWriter fw = new FileWriter(ruta, false);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    for (Equipo equipo : equipos) {
+                        bw.write(equipo.toString() + "\n");
+                    }
+                    bw.close();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+                return true;
+            }
+        }
+        return false;
     }
 
 
