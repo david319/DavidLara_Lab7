@@ -96,4 +96,8 @@ public class Equipo {
     public void setPuntos(String puntos) {
         this.puntos = puntos;
     }
+
+    public String toString(){
+        return "Equipo: " + nombre + " PJ: " + PJ + " PG: " + PG + " PE: " + PE + " PP: " + PP + " GF: " + GF + " GC: " + GC + " DG: " + DG + " Puntos: " + puntos;
+    }
 }
