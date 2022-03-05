@@ -20,7 +20,7 @@
                         <Menu mnemonicParsing="false" text="Partidos">
                             <items>
                                 <MenuItem fx:id="SimularP" mnemonicParsing="false" text="Simular" />
-                                <MenuItem fx:id="TablaDeP" mnemonicParsing="false" text="Tabla de posiciones" />
+                                <MenuItem fx:id="TablaDeP" mnemonicParsing="false" onAction="#TablaDeP" text="Tabla de posiciones" />
                             </items>
                         </Menu>
                     </menus>
@@ -41,11 +41,17 @@
                   <TextField fx:id="nameD" layoutX="53.0" layoutY="60.0" prefHeight="25.0" prefWidth="176.0" promptText="Ingrese el nombre del equipo" />
                     </children>
                 </Pane>
-            <Pane fx:id="paneLoad" layoutX="59.0" layoutY="42.0" prefHeight="100.0" prefWidth="182.0">
+            <Pane fx:id="paneLoad" layoutX="59.0" layoutY="42.0" prefHeight="100.0" prefWidth="182.0" visible="false">
                <children>
                   <Button fx:id="loadA" layoutX="44.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#loadA" text="Cargar Archivo" />
                   <Button fx:id="backL" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#BackL" text="Salir" />
                </children></Pane>
+            <Pane fx:id="paneT" layoutY="62.0" prefHeight="244.0" prefWidth="301.0">
+               <children>
+                  <ListView fx:id="listView" layoutX="-1.0" layoutY="7.0" prefHeight="200.0" prefWidth="301.0" />
+                  <Button fx:id="backT" layoutX="125.0" layoutY="207.0" mnemonicParsing="false" onMouseClicked="#BackT" text="Regresar" />
+               </children>
+            </Pane>
             </children>
         </Pane>
     </children>

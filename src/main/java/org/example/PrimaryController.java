@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
@@ -9,7 +10,7 @@ import static org.example.Archivos.*;
 public class PrimaryController {
 
     @FXML
-    private Pane Crear, DeleteT, paneLoad;
+    private Pane Crear, DeleteT, paneLoad, paneT;
 
     @FXML
     private MenuBar MenuBar;
@@ -23,9 +24,13 @@ public class PrimaryController {
     @FXML
     private Button BackP, Create, delete_btn, backE, loadA, backL;
 
+    @FXML
+    private ListView<Equipo> listView;
+
 
     @FXML
     private void initialize() {
+        tablaP();
     }
 
     public void OnClickCreateTeam() {
@@ -118,6 +123,7 @@ public class PrimaryController {
         if (loadArchivo()) {
             paneLoad.setVisible(false);
             MenuBar.setVisible(true);
+            tablaP();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Informacion");
             alert.setHeaderText("Archivo cargado");
@@ -133,6 +139,34 @@ public class PrimaryController {
             alert.showAndWait();
         }
     }
+
+    public void OnSimularClicked(){
+        SimularP.setVisible(true);
+        MenuBar.setVisible(false);
+    }
+
+    public void BackSim(){
+        SimularP.setVisible(false);
+        MenuBar.setVisible(true);
+    }
+
+    public void TablaDeP(){
+        paneT.setVisible(true);
+        MenuBar.setVisible(false);
+    }
+
+    public void tablaP() {
+        listView.getItems().clear();
+        for (Equipo e : equipos) {
+            listView.getItems().addAll(e);
+        }
+    }
+
+    public void BackT(){
+        paneT.setVisible(false);
+        MenuBar.setVisible(true);
+    }
+
 
 }
 
