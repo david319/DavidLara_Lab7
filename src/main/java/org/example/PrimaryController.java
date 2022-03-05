@@ -113,7 +113,7 @@ public class PrimaryController {
         MenuBar.setVisible(false);
     }
 
-    public void BackL(){
+    public void BackL() {
         paneLoad.setVisible(false);
         MenuBar.setVisible(true);
     }
@@ -140,17 +140,17 @@ public class PrimaryController {
         }
     }
 
-    public void OnSimularClicked(){
+    public void OnSimularClicked() {
         SimularP.setVisible(true);
         MenuBar.setVisible(false);
     }
 
-    public void BackSim(){
+    public void BackSim() {
         SimularP.setVisible(false);
         MenuBar.setVisible(true);
     }
 
-    public void TablaDeP(){
+    public void TablaDeP() {
         paneT.setVisible(true);
         MenuBar.setVisible(false);
     }
@@ -162,7 +162,7 @@ public class PrimaryController {
         }
     }
 
-    public void BackT(){
+    public void BackT() {
         paneT.setVisible(false);
         MenuBar.setVisible(true);
     }
