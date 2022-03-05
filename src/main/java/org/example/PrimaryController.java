@@ -1,6 +1,5 @@
 package org.example;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
@@ -124,8 +123,9 @@ public class PrimaryController {
             paneLoad.setVisible(false);
             MenuBar.setVisible(true);
             tablaP();
+            posiciones();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Informacion");
+            alert.setTitle("Información");
             alert.setHeaderText("Archivo cargado");
             alert.setContentText("El archivo ha sido cargado");
             alert.showAndWait();
