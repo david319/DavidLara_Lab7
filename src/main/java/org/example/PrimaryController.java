@@ -127,7 +127,7 @@ public class PrimaryController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Información");
             alert.setHeaderText("Archivo cargado");
-            alert.setContentText("El archivo ha sido cargado");
+            alert.setContentText("El archivo ha sido cargado correctamente");
             alert.showAndWait();
         } else {
             paneLoad.setVisible(false);
